@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lawnet Cloud | Thoughtful Technology</title>
+  <meta name="description" content="A neutral public landing page for Lawnet Cloud: thoughtful technology, responsible experimentation and human-centred progress." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0e1726" />
+  <style>
+    :root {
+      --ink: #eef7ff;
+      --ink-strong: #ffffff;
+      --muted: #a9bdd1;
+      --quiet: #7f94aa;
+      --canvas: #08111f;
+      --panel: rgba(255, 255, 255, 0.075);
+      --line: rgba(255, 255, 255, 0.15);
+      --line-soft: rgba(255, 255, 255, 0.095);
+      --teal: #35d3c6;
+      --blue: #66a7ff;
+      --violet: #b98cff;
+      --amber: #f3bd63;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+      --radius: 30px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--canvas);
+      scroll-behaviour: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(53, 211, 198, 0.22), transparent 28rem),
+        radial-gradient(circle at 88% 0%, rgba(185, 140, 255, 0.22), transparent 30rem),
+        radial-gradient(circle at 58% 80%, rgba(102, 167, 255, 0.16), transparent 34rem),
+        linear-gradient(135deg, #08111f 0%, #101a2a 46%, #08111f 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.042) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.042) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(circle at 50% 10%, rgba(0,0,0,0.85), transparent 78%);
+    }
+
+    body::after {
+      background:
+        linear-gradient(105deg, transparent 0%, rgba(53, 211, 198, 0.055) 43%, transparent 68%),
+        linear-gradient(75deg, transparent 0%, rgba(185, 140, 255, 0.045) 38%, transparent 64%);
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      to { transform: translate3d(1.5%, 1%, 0) scale(1.03); }
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 48px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 62px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background:
+        linear-gradient(135deg, rgba(53, 211, 198, 0.22), rgba(102, 167, 255, 0.12)),
+        rgba(255, 255, 255, 0.06);
+      box-shadow: 0 18px 42px rgba(53, 211, 198, 0.12);
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      width: 17px;
+      height: 17px;
+      border: 2px solid var(--teal);
+      border-right-color: var(--violet);
+      border-bottom-color: var(--blue);
+      border-radius: 50%;
+      box-shadow: 0 0 26px rgba(53, 211, 198, 0.46);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 2px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--muted);
+      padding: 10px 14px;
+      font-size: 0.86rem;
+      backdrop-filter: blur(18px);
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(53, 211, 198, 0.12);
+    }
+
+    main { display: grid; gap: 22px; }
+
+    .hero {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.7fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 8px);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.045)),
+        linear-gradient(165deg, rgba(53, 211, 198, 0.08), rgba(185, 140, 255, 0.08));
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 6vw, 64px);
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -210px;
+      top: -180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(53, 211, 198, 0.18), transparent 68%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      border: 1px solid rgba(53, 211, 198, 0.2);
+      border-radius: 999px;
+      background: rgba(53, 211, 198, 0.08);
+      color: #b7fff8;
+      padding: 9px 13px;
+      font-size: 0.84rem;
+      font-weight: 780;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      color: var(--ink-strong);
+      font-size: clamp(3.4rem, 8.2vw, 7.6rem);
+      line-height: 0.88;
+      letter-spacing: -0.085em;
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.34rem);
+      line-height: 1.58;
+    }
+
+    .hero-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--muted);
+      padding: 0 13px;
+      font-size: 0.88rem;
+      font-weight: 680;
+    }
+
+    .orbital {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 390px);
+      aspect-ratio: 1;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbital-ring {
+      position: absolute;
+      inset: 7%;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      animation: rotate 26s linear infinite;
+    }
+
+    .orbital-ring:nth-child(2) {
+      inset: 18%;
+      border-color: rgba(53, 211, 198, 0.22);
+      animation-duration: 18s;
+      animation-direction: reverse;
+    }
+
+    .orbital-ring:nth-child(3) {
+      inset: 29%;
+      border-color: rgba(185, 140, 255, 0.2);
+      animation-duration: 32s;
+    }
+
+    .orbital-ring::before {
+      content: "";
+      position: absolute;
+      top: 11%;
+      left: 11%;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 22px rgba(53, 211, 198, 0.8);
+    }
+
+    .orbital-ring:nth-child(2)::before {
+      background: var(--violet);
+      box-shadow: 0 0 22px rgba(185, 140, 255, 0.8);
+      top: auto;
+      bottom: 8%;
+      left: 22%;
+    }
+
+    .orbital-ring:nth-child(3)::before {
+      background: var(--amber);
+      box-shadow: 0 0 22px rgba(243, 189, 99, 0.75);
+      top: 44%;
+      left: auto;
+      right: -5px;
+    }
+
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    .core {
+      position: relative;
+      width: 44%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 38%;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.38), transparent 18%),
+        linear-gradient(135deg, rgba(53, 211, 198, 0.56), rgba(102, 167, 255, 0.34) 44%, rgba(185, 140, 255, 0.48));
+      box-shadow:
+        0 0 64px rgba(53, 211, 198, 0.26),
+        inset 0 0 38px rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+    }
+
+    .core::before,
+    .core::after {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 31%;
+      transform: rotate(45deg);
+    }
+
+    .core::after {
+      inset: 34%;
+      border-color: rgba(255, 255, 255, 0.44);
+      transform: rotate(0);
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .statement-card,
+    .wide-card {
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.088), rgba(255, 255, 255, 0.035));
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .statement-card {
+      position: relative;
+      min-height: 260px;
+      padding: 25px;
+      overflow: hidden;
+    }
+
+    .statement-card::after {
+      content: "";
+      position: absolute;
+      right: -56px;
+      bottom: -70px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(102, 167, 255, 0.16), transparent 68%);
+    }
+
+    .number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+      color: #cffffa;
+      background: rgba(53, 211, 198, 0.08);
+      font-weight: 820;
+      font-size: 0.9rem;
+    }
+
+    .statement-card h2 {
+      margin: 0 0 12px;
+      color: var(--ink-strong);
+      font-size: 1.28rem;
+      letter-spacing: -0.04em;
+    }
+
+    .statement-card p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.98rem;
+    }
+
+    .wide-card {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: clamp(20px, 5vw, 54px);
+      align-items: center;
+      padding: clamp(26px, 5vw, 48px);
+      overflow: hidden;
+    }
+
+    .quote-mark {
+      width: 78px;
+      height: 78px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background:
+        linear-gradient(135deg, rgba(243, 189, 99, 0.2), rgba(255, 122, 144, 0.12));
+      color: #ffe0a3;
+      font-size: 3rem;
+      line-height: 1;
+      box-shadow: 0 18px 46px rgba(243, 189, 99, 0.09);
+    }
+
+    .wide-card h2 {
+      margin: 0 0 14px;
+      color: var(--ink-strong);
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      text-wrap: balance;
+    }
+
+    .wide-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 1.04rem;
+    }
+
+    .principles { display: grid; gap: 12px; }
+
+    .principle {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      border: 1px solid rgba(255, 255, 255, 0.095);
+      border-radius: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .principle-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 6px;
+      background: var(--teal);
+      box-shadow: 0 0 18px rgba(53, 211, 198, 0.65);
+    }
+
+    .principle:nth-child(2) .principle-dot {
+      background: var(--blue);
+      box-shadow: 0 0 18px rgba(102, 167, 255, 0.65);
+    }
+
+    .principle:nth-child(3) .principle-dot {
+      background: var(--violet);
+      box-shadow: 0 0 18px rgba(185, 140, 255, 0.65);
+    }
+
+    .principle strong {
+      display: block;
+      color: var(--ink-strong);
+      letter-spacing: -0.025em;
+    }
+
+    .principle span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.48;
+      margin-top: 3px;
+      font-size: 0.96rem;
+    }
+
+    .architecture-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line-soft);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.052);
+      padding: 18px;
+      min-height: 132px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink-strong);
+      font-size: 1rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 9px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--quiet);
+      font-size: 0.9rem;
+      line-height: 1.48;
+    }
+
+    .bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+      color: var(--quiet);
+      font-size: 0.9rem;
+    }
+
+    .bottom strong {
+      color: var(--muted);
+      font-weight: 740;
+    }
+
+    .no-public-links {
+      border: 1px solid rgba(53, 211, 198, 0.14);
+      border-radius: 999px;
+      background: rgba(53, 211, 198, 0.055);
+      color: #b9fff8;
+      padding: 9px 13px;
+      font-size: 0.84rem;
+      font-weight: 740;
+    }
+
+    @media (max-width: 980px) {
+      header { margin-bottom: 34px; }
+
+      .hero,
+      .wide-card { grid-template-columns: 1fr; }
+
+      .hero { min-height: auto; }
+
+      .orbital { width: min(78vw, 340px); }
+
+      .statement-grid,
+      .architecture-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .shell {
+        width: min(100% - 22px, var(--max));
+        padding-top: 18px;
+      }
+
+      .availability { display: none; }
+
+      .brand-copy span { display: none; }
+
+      .hero,
+      .wide-card,
+      .statement-card { border-radius: 24px; }
+
+      .hero { padding: 26px; }
+
+      .hero-footer { gap: 8px; }
+
+      .chip {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .statement-grid,
+      .architecture-strip { grid-template-columns: 1fr; }
+
+      .statement-card { min-height: 218px; }
+
+      .number { margin-bottom: 22px; }
+
+      .bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behaviour: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+    <header aria-label="Site header">
+      <div class="brand" aria-label="Lawnet Cloud">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <strong>Lawnet Cloud</strong>
+          <span>Thoughtful technology, deliberately applied.</span>
+        </span>
+      </div>
+
+      <div class="availability" aria-label="Public landing page status">
+        <span class="pulse" aria-hidden="true"></span>
+        Public landing page
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-content">
+          <p class="eyebrow">Cloud · AI · Human Progress</p>
+          <h1 id="page-title">Technology should make people stronger.</h1>
+          <p class="lead">
+            Lawnet Cloud is a personal technology space for exploring how modern digital platforms,
+            automation and artificial intelligence can improve the way people think, lead, learn and work.
+          </p>
+          <div class="hero-footer" aria-label="Themes">
+            <span class="chip">Responsible experimentation</span>
+            <span class="chip">Human-centred design</span>
+            <span class="chip">Practical cloud thinking</span>
+          </div>
+        </div>
+
+        <div class="orbital" aria-hidden="true">
+          <div class="orbital-ring"></div>
+          <div class="orbital-ring"></div>
+          <div class="orbital-ring"></div>
+          <div class="core"></div>
+        </div>
+      </section>
+
+      <section class="statement-grid" aria-label="Public themes">
+        <article class="statement-card">
+          <span class="number">01</span>
+          <h2>AI with intent</h2>
+          <p>
+            The most valuable use of AI is not novelty. It is better judgement, clearer communication,
+            sharper preparation and more confident human decision-making.
+          </p>
+        </article>
+
+        <article class="statement-card">
+          <span class="number">02</span>
+          <h2>Cloud as an enabler</h2>
+          <p>
+            Cloud platforms are most powerful when they reduce friction, create resilience and help ideas
+            move from concept to useful service with pace and control.
+          </p>
+        </article>
+
+        <article class="statement-card">
+          <span class="number">03</span>
+          <h2>People first</h2>
+          <p>
+            Technology should support people rather than overwhelm them. The right tools should help
+            individuals and teams become more capable, more purposeful and more effective.
+          </p>
+        </article>
+      </section>
+
+      <section class="wide-card" aria-label="Technology philosophy">
+        <div>
+          <div class="quote-mark" aria-hidden="true">“</div>
+        </div>
+
+        <div>
+          <h2>Progress comes from willingness, not reluctance.</h2>
+          <p>
+            The strongest outcomes emerge when people engage with technology deliberately and confidently.
+            Better tools do not replace curiosity, leadership or judgement. They amplify them.
+          </p>
+        </div>
+      </section>
+
+      <section class="wide-card" aria-label="Operating principles">
+        <div>
+          <h2>Quietly built. Carefully considered.</h2>
+          <p>
+            This domain is used as a neutral public entry point for ongoing technical exploration.
+            Public information is intentionally limited. The work behind the scenes is where the detail lives.
+          </p>
+        </div>
+
+        <div class="principles">
+          <div class="principle">
+            <span class="principle-dot" aria-hidden="true"></span>
+            <span>
+              <strong>Clarity over complexity</strong>
+              <span>Good systems should make the important things easier to see, decide and act upon.</span>
+            </span>
+          </div>
+
+          <div class="principle">
+            <span class="principle-dot" aria-hidden="true"></span>
+            <span>
+              <strong>Experiment safely</strong>
+              <span>Innovation should be energetic, but it should also be responsible, contained and considered.</span>
+            </span>
+          </div>
+
+          <div class="principle">
+            <span class="principle-dot" aria-hidden="true"></span>
+            <span>
+              <strong>Build for usefulness</strong>
+              <span>The measure of a digital idea is whether it helps people do something meaningful better than before.</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="architecture-strip" aria-label="Technical qualities">
+        <div class="metric">
+          <strong>Static by design</strong>
+          <span>Lightweight public surface with fast delivery and minimal operational overhead.</span>
+        </div>
+
+        <div class="metric">
+          <strong>Edge-ready</strong>
+          <span>Designed to sit cleanly behind modern DNS, HTTPS and web delivery controls.</span>
+        </div>
+
+        <div class="metric">
+          <strong>Privacy-aware</strong>
+          <span>Public content is deliberately neutral and avoids exposing private project detail.</span>
+        </div>
+
+        <div class="metric">
+          <strong>Future flexible</strong>
+          <span>Built as a simple foundation that can evolve without becoming noisy or overexposed.</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bottom">
+      <span><strong>Lawnet Cloud</strong> · Public technology landing page</span>
+      <span class="no-public-links">No public directory or application index</span>
+    </footer>
+  </div>
+</body>
+</html>
