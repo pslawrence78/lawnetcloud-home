@@ -3,83 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lawnet Cloud | Thoughtful Technology</title>
-  <meta name="description" content="A neutral public landing page for Lawnet Cloud: thoughtful technology, responsible experimentation and human-centred progress." />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#0e1726" />
+  <title>Lawnet Cloud | Family Applications</title>
+  <meta
+    name="description"
+    content="A private launchpad for the Lawrence family application suite, including Adventure Almanac, Officially Organised and Properly Packed."
+  />
+  <meta name="theme-color" content="#f4eadc" />
+
   <style>
     :root {
-      --ink: #eef7ff;
-      --ink-strong: #ffffff;
-      --muted: #a9bdd1;
-      --quiet: #7f94aa;
-      --canvas: #08111f;
-      --panel: rgba(255, 255, 255, 0.075);
-      --line: rgba(255, 255, 255, 0.15);
-      --line-soft: rgba(255, 255, 255, 0.095);
-      --teal: #35d3c6;
-      --blue: #66a7ff;
-      --violet: #b98cff;
-      --amber: #f3bd63;
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
-      --radius: 30px;
-      --max: 1180px;
+      --canvas: #f6efe4;
+      --canvas-deep: #ead9c2;
+      --card: rgba(255, 252, 247, 0.78);
+      --card-solid: #fffaf3;
+      --text: #2d2925;
+      --muted: #74695e;
+      --line: rgba(75, 59, 42, 0.14);
+      --accent: #7a2f2f;
+      --accent-2: #23615b;
+      --gold: #b88335;
+      --shadow: 0 24px 70px rgba(61, 43, 25, 0.14);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       min-height: 100%;
       background: var(--canvas);
-      scroll-behaviour: smooth;
     }
 
     body {
-      min-height: 100vh;
       margin: 0;
-      color: var(--ink);
+      min-height: 100vh;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at 12% 8%, rgba(53, 211, 198, 0.22), transparent 28rem),
-        radial-gradient(circle at 88% 0%, rgba(185, 140, 255, 0.22), transparent 30rem),
-        radial-gradient(circle at 58% 80%, rgba(102, 167, 255, 0.16), transparent 34rem),
-        linear-gradient(135deg, #08111f 0%, #101a2a 46%, #08111f 100%);
+        radial-gradient(circle at top left, rgba(184, 131, 53, 0.28), transparent 34rem),
+        radial-gradient(circle at 88% 12%, rgba(35, 97, 91, 0.22), transparent 32rem),
+        linear-gradient(135deg, var(--canvas), #fbf5eb 48%, var(--canvas-deep));
       overflow-x: hidden;
     }
 
-    body::before,
-    body::after {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
-    }
-
-    body::before {
       background-image:
-        linear-gradient(rgba(255, 255, 255, 0.042) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.042) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: radial-gradient(circle at 50% 10%, rgba(0,0,0,0.85), transparent 78%);
-    }
-
-    body::after {
-      background:
-        linear-gradient(105deg, transparent 0%, rgba(53, 211, 198, 0.055) 43%, transparent 68%),
-        linear-gradient(75deg, transparent 0%, rgba(185, 140, 255, 0.045) 38%, transparent 64%);
-      animation: drift 14s ease-in-out infinite alternate;
-    }
-
-    @keyframes drift {
-      from { transform: translate3d(-1.5%, -1%, 0) scale(1); }
-      to { transform: translate3d(1.5%, 1%, 0) scale(1.03); }
+        linear-gradient(rgba(45, 41, 37, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 41, 37, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.58), transparent 78%);
     }
 
     .shell {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      padding: 30px 0 48px;
+      padding: 28px 0 44px;
     }
 
     header {
@@ -87,518 +72,407 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 62px;
+      padding: 12px 0 46px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 13px;
-      color: inherit;
+      gap: 12px;
       text-decoration: none;
+      color: inherit;
     }
 
-    .brand-mark {
-      width: 48px;
-      height: 48px;
-      position: relative;
+    .mark {
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 17px;
+      border-radius: 15px;
       background:
-        linear-gradient(135deg, rgba(53, 211, 198, 0.22), rgba(102, 167, 255, 0.12)),
-        rgba(255, 255, 255, 0.06);
-      box-shadow: 0 18px 42px rgba(53, 211, 198, 0.12);
-      overflow: hidden;
+        linear-gradient(135deg, rgba(122, 47, 47, 0.96), rgba(35, 97, 91, 0.92));
+      color: #fff9f0;
+      box-shadow: 0 12px 30px rgba(122, 47, 47, 0.24);
+      font-weight: 800;
+      letter-spacing: -0.04em;
     }
 
-    .brand-mark::before {
-      content: "";
-      width: 17px;
-      height: 17px;
-      border: 2px solid var(--teal);
-      border-right-color: var(--violet);
-      border-bottom-color: var(--blue);
-      border-radius: 50%;
-      box-shadow: 0 0 26px rgba(53, 211, 198, 0.46);
-    }
-
-    .brand-copy strong {
+    .brand-text strong {
       display: block;
-      font-size: 1.02rem;
+      font-size: 1rem;
       letter-spacing: -0.02em;
     }
 
-    .brand-copy span {
+    .brand-text span {
       display: block;
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.84rem;
-      margin-top: 2px;
     }
 
-    .availability {
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      border: 1px solid var(--line-soft);
+      gap: 9px;
+      border: 1px solid var(--line);
+      background: rgba(255, 252, 247, 0.62);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.055);
-      color: var(--muted);
       padding: 10px 14px;
+      color: var(--muted);
       font-size: 0.86rem;
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(14px);
     }
 
-    .pulse {
+    .status-dot {
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 0 6px rgba(53, 211, 198, 0.12);
+      background: #2e8f67;
+      box-shadow: 0 0 0 5px rgba(46, 143, 103, 0.13);
     }
 
-    main { display: grid; gap: 22px; }
+    main {
+      display: grid;
+      gap: 28px;
+    }
 
     .hero {
       position: relative;
-      min-height: 560px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.7fr);
-      gap: clamp(28px, 6vw, 72px);
-      align-items: center;
       border: 1px solid var(--line);
       border-radius: calc(var(--radius) + 8px);
       background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.115), rgba(255, 255, 255, 0.045)),
-        linear-gradient(165deg, rgba(53, 211, 198, 0.08), rgba(185, 140, 255, 0.08));
+        linear-gradient(135deg, rgba(255, 252, 247, 0.84), rgba(255, 249, 239, 0.58)),
+        linear-gradient(160deg, rgba(122, 47, 47, 0.08), rgba(35, 97, 91, 0.08));
       box-shadow: var(--shadow);
-      padding: clamp(28px, 6vw, 64px);
+      padding: clamp(28px, 5vw, 58px);
       overflow: hidden;
-      backdrop-filter: blur(20px);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 480px;
-      height: 480px;
-      right: -210px;
-      top: -180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(53, 211, 198, 0.18), transparent 68%);
+      backdrop-filter: blur(18px);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: 18px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      pointer-events: none;
+      right: -120px;
+      top: -140px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(184, 131, 53, 0.22), transparent 64%);
     }
-
-    .hero-content { position: relative; z-index: 2; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 22px;
-      border: 1px solid rgba(53, 211, 198, 0.2);
+      gap: 9px;
+      margin: 0 0 18px;
+      border: 1px solid rgba(122, 47, 47, 0.18);
       border-radius: 999px;
-      background: rgba(53, 211, 198, 0.08);
-      color: #b7fff8;
+      background: rgba(255, 250, 243, 0.7);
+      color: var(--accent);
       padding: 9px 13px;
-      font-size: 0.84rem;
-      font-weight: 780;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
 
     h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 830px;
       margin: 0;
-      max-width: 760px;
-      color: var(--ink-strong);
-      font-size: clamp(3.4rem, 8.2vw, 7.6rem);
-      line-height: 0.88;
-      letter-spacing: -0.085em;
-      text-wrap: balance;
+      font-size: clamp(2.7rem, 7vw, 6.5rem);
+      line-height: 0.9;
+      letter-spacing: -0.075em;
     }
 
-    .lead {
-      max-width: 690px;
-      margin: 28px 0 0;
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 24px 0 0;
       color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.34rem);
-      line-height: 1.58;
+      font-size: clamp(1.04rem, 2vw, 1.28rem);
+      line-height: 1.55;
     }
 
-    .hero-footer {
+    .hero-actions {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin-top: 32px;
     }
 
-    .chip {
+    .button {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      border: 1px solid var(--line-soft);
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.055);
+      padding: 0 19px;
+      border: 1px solid rgba(45, 41, 37, 0.12);
+      text-decoration: none;
+      font-weight: 760;
+      color: var(--text);
+      background: rgba(255, 250, 243, 0.72);
+      box-shadow: 0 10px 26px rgba(45, 41, 37, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .button.primary {
+      color: #fff9f0;
+      background: linear-gradient(135deg, var(--accent), #963f36);
+      border-color: rgba(122, 47, 47, 0.2);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(45, 41, 37, 0.12);
+      border-color: rgba(122, 47, 47, 0.26);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p {
+      margin: 0;
       color: var(--muted);
-      padding: 0 13px;
-      font-size: 0.88rem;
-      font-weight: 680;
+      font-size: 0.96rem;
     }
 
-    .orbital {
-      position: relative;
-      z-index: 2;
-      width: min(100%, 390px);
-      aspect-ratio: 1;
-      margin: 0 auto;
-      display: grid;
-      place-items: center;
-    }
-
-    .orbital-ring {
-      position: absolute;
-      inset: 7%;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 50%;
-      animation: rotate 26s linear infinite;
-    }
-
-    .orbital-ring:nth-child(2) {
-      inset: 18%;
-      border-color: rgba(53, 211, 198, 0.22);
-      animation-duration: 18s;
-      animation-direction: reverse;
-    }
-
-    .orbital-ring:nth-child(3) {
-      inset: 29%;
-      border-color: rgba(185, 140, 255, 0.2);
-      animation-duration: 32s;
-    }
-
-    .orbital-ring::before {
-      content: "";
-      position: absolute;
-      top: 11%;
-      left: 11%;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 22px rgba(53, 211, 198, 0.8);
-    }
-
-    .orbital-ring:nth-child(2)::before {
-      background: var(--violet);
-      box-shadow: 0 0 22px rgba(185, 140, 255, 0.8);
-      top: auto;
-      bottom: 8%;
-      left: 22%;
-    }
-
-    .orbital-ring:nth-child(3)::before {
-      background: var(--amber);
-      box-shadow: 0 0 22px rgba(243, 189, 99, 0.75);
-      top: 44%;
-      left: auto;
-      right: -5px;
-    }
-
-    @keyframes rotate { to { transform: rotate(360deg); } }
-
-    .core {
-      position: relative;
-      width: 44%;
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      border-radius: 38%;
-      background:
-        radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.38), transparent 18%),
-        linear-gradient(135deg, rgba(53, 211, 198, 0.56), rgba(102, 167, 255, 0.34) 44%, rgba(185, 140, 255, 0.48));
-      box-shadow:
-        0 0 64px rgba(53, 211, 198, 0.26),
-        inset 0 0 38px rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.26);
-    }
-
-    .core::before,
-    .core::after {
-      content: "";
-      position: absolute;
-      inset: 22%;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      border-radius: 31%;
-      transform: rotate(45deg);
-    }
-
-    .core::after {
-      inset: 34%;
-      border-color: rgba(255, 255, 255, 0.44);
-      transform: rotate(0);
-    }
-
-    .statement-grid {
+    .app-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .statement-card,
-    .wide-card {
-      border: 1px solid var(--line-soft);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.088), rgba(255, 255, 255, 0.035));
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(18px);
-    }
-
-    .statement-card {
+    .app-card {
       position: relative;
-      min-height: 260px;
-      padding: 25px;
+      min-height: 262px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: var(--card);
+      box-shadow: 0 18px 46px rgba(61, 43, 25, 0.08);
+      backdrop-filter: blur(16px);
       overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
-    .statement-card::after {
+    .app-card::before {
       content: "";
       position: absolute;
-      right: -56px;
-      bottom: -70px;
-      width: 170px;
-      height: 170px;
+      inset: auto -48px -72px auto;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(102, 167, 255, 0.16), transparent 68%);
+      background: radial-gradient(circle, rgba(184, 131, 53, 0.22), transparent 65%);
     }
 
-    .number {
-      display: inline-grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      margin-bottom: 34px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
-      color: #cffffa;
-      background: rgba(53, 211, 198, 0.08);
-      font-weight: 820;
-      font-size: 0.9rem;
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 58px rgba(61, 43, 25, 0.13);
+      border-color: rgba(122, 47, 47, 0.24);
     }
 
-    .statement-card h2 {
-      margin: 0 0 12px;
-      color: var(--ink-strong);
-      font-size: 1.28rem;
-      letter-spacing: -0.04em;
-    }
-
-    .statement-card p {
+    .app-top {
       position: relative;
       z-index: 1;
+    }
+
+    .app-code {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      background: rgba(45, 41, 37, 0.06);
+      border: 1px solid rgba(45, 41, 37, 0.08);
+      color: var(--accent-2);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .app-card:nth-child(1) .app-code {
+      color: var(--accent);
+    }
+
+    .app-card:nth-child(3) .app-code {
+      color: var(--gold);
+    }
+
+    .app-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.42rem;
+      letter-spacing: -0.045em;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .app-footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      border: 1px solid rgba(35, 97, 91, 0.16);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--accent-2);
+      background: rgba(35, 97, 91, 0.06);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 252, 247, 0.65);
+      padding: 24px;
+      box-shadow: 0 18px 46px rgba(61, 43, 25, 0.07);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-card h2,
+    .info-card h3 {
+      margin: 0 0 12px;
+      letter-spacing: -0.035em;
+    }
+
+    .info-card p {
       margin: 0;
       color: var(--muted);
       line-height: 1.55;
-      font-size: 0.98rem;
     }
 
-    .wide-card {
+    .link-list {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: clamp(20px, 5vw, 54px);
-      align-items: center;
-      padding: clamp(26px, 5vw, 48px);
-      overflow: hidden;
-    }
-
-    .quote-mark {
-      width: 78px;
-      height: 78px;
-      display: grid;
-      place-items: center;
-      border-radius: 26px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background:
-        linear-gradient(135deg, rgba(243, 189, 99, 0.2), rgba(255, 122, 144, 0.12));
-      color: #ffe0a3;
-      font-size: 3rem;
-      line-height: 1;
-      box-shadow: 0 18px 46px rgba(243, 189, 99, 0.09);
-    }
-
-    .wide-card h2 {
-      margin: 0 0 14px;
-      color: var(--ink-strong);
-      font-size: clamp(2rem, 4.5vw, 4rem);
-      line-height: 0.98;
-      letter-spacing: -0.07em;
-      text-wrap: balance;
-    }
-
-    .wide-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.58;
-      font-size: 1.04rem;
-    }
-
-    .principles { display: grid; gap: 12px; }
-
-    .principle {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 14px;
-      align-items: start;
-      border: 1px solid rgba(255, 255, 255, 0.095);
-      border-radius: 20px;
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.045);
-    }
-
-    .principle-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-top: 6px;
-      background: var(--teal);
-      box-shadow: 0 0 18px rgba(53, 211, 198, 0.65);
-    }
-
-    .principle:nth-child(2) .principle-dot {
-      background: var(--blue);
-      box-shadow: 0 0 18px rgba(102, 167, 255, 0.65);
-    }
-
-    .principle:nth-child(3) .principle-dot {
-      background: var(--violet);
-      box-shadow: 0 0 18px rgba(185, 140, 255, 0.65);
-    }
-
-    .principle strong {
-      display: block;
-      color: var(--ink-strong);
-      letter-spacing: -0.025em;
-    }
-
-    .principle span {
-      display: block;
-      color: var(--muted);
-      line-height: 1.48;
-      margin-top: 3px;
-      font-size: 0.96rem;
-    }
-
-    .architecture-strip {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
-      border: 1px solid var(--line-soft);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.052);
-      padding: 18px;
-      min-height: 132px;
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--ink-strong);
-      font-size: 1rem;
-      letter-spacing: -0.025em;
-      margin-bottom: 9px;
-    }
-
-    .metric span {
-      display: block;
-      color: var(--quiet);
-      font-size: 0.9rem;
-      line-height: 1.48;
-    }
-
-    .bottom {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: center;
+      gap: 10px;
       margin-top: 18px;
-      color: var(--quiet);
+    }
+
+    .link-list a {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border: 1px solid rgba(45, 41, 37, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      color: inherit;
+      text-decoration: none;
+      background: rgba(255, 250, 243, 0.56);
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .link-list a:hover {
+      transform: translateX(3px);
+      border-color: rgba(122, 47, 47, 0.24);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+      padding: 20px 0 0;
+      color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .bottom strong {
-      color: var(--muted);
-      font-weight: 740;
+    footer a {
+      color: inherit;
     }
 
-    .no-public-links {
-      border: 1px solid rgba(53, 211, 198, 0.14);
-      border-radius: 999px;
-      background: rgba(53, 211, 198, 0.055);
-      color: #b9fff8;
-      padding: 9px 13px;
-      font-size: 0.84rem;
-      font-weight: 740;
-    }
-
-    @media (max-width: 980px) {
-      header { margin-bottom: 34px; }
-
-      .hero,
-      .wide-card { grid-template-columns: 1fr; }
-
-      .hero { min-height: auto; }
-
-      .orbital { width: min(78vw, 340px); }
-
-      .statement-grid,
-      .architecture-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    @media (max-width: 620px) {
-      .shell {
-        width: min(100% - 22px, var(--max));
-        padding-top: 18px;
+    @media (max-width: 880px) {
+      header {
+        align-items: flex-start;
+        padding-bottom: 28px;
       }
 
-      .availability { display: none; }
-
-      .brand-copy span { display: none; }
-
-      .hero,
-      .wide-card,
-      .statement-card { border-radius: 24px; }
-
-      .hero { padding: 26px; }
-
-      .hero-footer { gap: 8px; }
-
-      .chip {
-        width: 100%;
-        justify-content: center;
+      .status-pill {
+        display: none;
       }
 
-      .statement-grid,
-      .architecture-strip { grid-template-columns: 1fr; }
+      .app-grid,
+      .panel {
+        grid-template-columns: 1fr;
+      }
 
-      .statement-card { min-height: 218px; }
+      .app-card {
+        min-height: 226px;
+      }
 
-      .number { margin-bottom: 22px; }
-
-      .bottom {
+      .section-heading {
         align-items: flex-start;
         flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .shell {
+        width: min(100% - 22px, var(--max));
+        padding-top: 16px;
+      }
+
+      .hero {
+        padding: 25px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .brand-text span {
+        display: none;
       }
     }
 
@@ -606,9 +480,8 @@
       *,
       *::before,
       *::after {
-        animation: none !important;
-        transition: none !important;
         scroll-behaviour: auto !important;
+        transition: none !important;
       }
     }
   </style>
@@ -617,150 +490,126 @@
 <body>
   <div class="shell">
     <header aria-label="Site header">
-      <div class="brand" aria-label="Lawnet Cloud">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-copy">
+      <a class="brand" href="/" aria-label="Lawnet Cloud home">
+        <span class="mark">LC</span>
+        <span class="brand-text">
           <strong>Lawnet Cloud</strong>
-          <span>Thoughtful technology, deliberately applied.</span>
+          <span>Private family application launchpad</span>
         </span>
-      </div>
+      </a>
 
-      <div class="availability" aria-label="Public landing page status">
-        <span class="pulse" aria-hidden="true"></span>
-        Public landing page
-      </div>
+      <span class="status-pill" aria-label="GitHub Pages status">
+        <span class="status-dot" aria-hidden="true"></span>
+        GitHub Pages ready
+      </span>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="page-title">
-        <div class="hero-content">
-          <p class="eyebrow">Cloud · AI · Human Progress</p>
-          <h1 id="page-title">Technology should make people stronger.</h1>
-          <p class="lead">
-            Lawnet Cloud is a personal technology space for exploring how modern digital platforms,
-            automation and artificial intelligence can improve the way people think, lead, learn and work.
-          </p>
-          <div class="hero-footer" aria-label="Themes">
-            <span class="chip">Responsible experimentation</span>
-            <span class="chip">Human-centred design</span>
-            <span class="chip">Practical cloud thinking</span>
+        <p class="eyebrow">Lawrence Family Series</p>
+        <h1 id="page-title">Useful little apps, built properly.</h1>
+        <p class="hero-copy">
+          A simple home for the private tools and family projects hosted under Lawnet Cloud.
+          Designed for planning, memories, routines and the small details that are easy to forget.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="/seb-adventure-atlas/">Open Adventure Almanac</a>
+          <a class="button" href="#applications">View applications</a>
+        </div>
+      </section>
+
+      <section id="applications" aria-labelledby="applications-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="applications-title">Applications</h2>
+            <p>Current and planned tools in the Lawrence Family Series.</p>
           </div>
         </div>
 
-        <div class="orbital" aria-hidden="true">
-          <div class="orbital-ring"></div>
-          <div class="orbital-ring"></div>
-          <div class="orbital-ring"></div>
-          <div class="core"></div>
-        </div>
-      </section>
-
-      <section class="statement-grid" aria-label="Public themes">
-        <article class="statement-card">
-          <span class="number">01</span>
-          <h2>AI with intent</h2>
-          <p>
-            The most valuable use of AI is not novelty. It is better judgement, clearer communication,
-            sharper preparation and more confident human decision-making.
-          </p>
-        </article>
-
-        <article class="statement-card">
-          <span class="number">02</span>
-          <h2>Cloud as an enabler</h2>
-          <p>
-            Cloud platforms are most powerful when they reduce friction, create resilience and help ideas
-            move from concept to useful service with pace and control.
-          </p>
-        </article>
-
-        <article class="statement-card">
-          <span class="number">03</span>
-          <h2>People first</h2>
-          <p>
-            Technology should support people rather than overwhelm them. The right tools should help
-            individuals and teams become more capable, more purposeful and more effective.
-          </p>
-        </article>
-      </section>
-
-      <section class="wide-card" aria-label="Technology philosophy">
-        <div>
-          <div class="quote-mark" aria-hidden="true">“</div>
-        </div>
-
-        <div>
-          <h2>Progress comes from willingness, not reluctance.</h2>
-          <p>
-            The strongest outcomes emerge when people engage with technology deliberately and confidently.
-            Better tools do not replace curiosity, leadership or judgement. They amplify them.
-          </p>
-        </div>
-      </section>
-
-      <section class="wide-card" aria-label="Operating principles">
-        <div>
-          <h2>Quietly built. Carefully considered.</h2>
-          <p>
-            This domain is used as a neutral public entry point for ongoing technical exploration.
-            Public information is intentionally limited. The work behind the scenes is where the detail lives.
-          </p>
-        </div>
-
-        <div class="principles">
-          <div class="principle">
-            <span class="principle-dot" aria-hidden="true"></span>
-            <span>
-              <strong>Clarity over complexity</strong>
-              <span>Good systems should make the important things easier to see, decide and act upon.</span>
+        <div class="app-grid" role="list">
+          <a class="app-card" href="/seb-adventure-atlas/" role="listitem">
+            <span class="app-top">
+              <span class="app-code">AA</span>
+              <h3>Adventure Almanac</h3>
+              <p>
+                Seb’s private atlas of holidays, cruises, flights, places and travel memories.
+              </p>
             </span>
-          </div>
-
-          <div class="principle">
-            <span class="principle-dot" aria-hidden="true"></span>
-            <span>
-              <strong>Experiment safely</strong>
-              <span>Innovation should be energetic, but it should also be responsible, contained and considered.</span>
+            <span class="app-footer">
+              Open app
+              <span aria-hidden="true">→</span>
             </span>
-          </div>
+          </a>
 
-          <div class="principle">
-            <span class="principle-dot" aria-hidden="true"></span>
-            <span>
-              <strong>Build for usefulness</strong>
-              <span>The measure of a digital idea is whether it helps people do something meaningful better than before.</span>
+          <a class="app-card" href="/officially-organised/" role="listitem">
+            <span class="app-top">
+              <span class="app-code">OO</span>
+              <h3>Officially Organised</h3>
+              <p>
+                A tailored family organiser for clubs, appointments, school life, car use and household rhythm.
+              </p>
             </span>
-          </div>
+            <span class="app-footer">
+              Planned
+              <span class="tag">Coming soon</span>
+            </span>
+          </a>
+
+          <a class="app-card" href="/properly-packed/" role="listitem">
+            <span class="app-top">
+              <span class="app-code">PP</span>
+              <h3>Properly Packed</h3>
+              <p>
+                Family travel packing, without the forgotten bits.
+              </p>
+            </span>
+            <span class="app-footer">
+              Planned
+              <span class="tag">Coming soon</span>
+            </span>
+          </a>
         </div>
       </section>
 
-      <section class="architecture-strip" aria-label="Technical qualities">
-        <div class="metric">
-          <strong>Static by design</strong>
-          <span>Lightweight public surface with fast delivery and minimal operational overhead.</span>
+      <section class="panel" aria-label="Information panels">
+        <div class="info-card">
+          <h2>About this site</h2>
+          <p>
+            This is the root GitHub Pages site for Lawnet Cloud. Project applications can sit neatly underneath it
+            using their repository paths, keeping everything accessible from one branded domain.
+          </p>
+
+          <div class="link-list" aria-label="Useful links">
+            <a href="/seb-adventure-atlas/">
+              <span>Seb’s Adventure Almanac</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="https://github.com/pslawrence78" rel="me">
+              <span>GitHub profile</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
 
-        <div class="metric">
-          <strong>Edge-ready</strong>
-          <span>Designed to sit cleanly behind modern DNS, HTTPS and web delivery controls.</span>
-        </div>
-
-        <div class="metric">
-          <strong>Privacy-aware</strong>
-          <span>Public content is deliberately neutral and avoids exposing private project detail.</span>
-        </div>
-
-        <div class="metric">
-          <strong>Future flexible</strong>
-          <span>Built as a simple foundation that can evolve without becoming noisy or overexposed.</span>
-        </div>
+        <aside class="info-card">
+          <h3>Hosting note</h3>
+          <p class="small">
+            Drop this file into the <strong>pslawrence78.github.io</strong> repository as <strong>index.html</strong>,
+            then enable GitHub Pages from the repository settings.
+          </p>
+        </aside>
       </section>
     </main>
 
-    <footer class="bottom">
-      <span><strong>Lawnet Cloud</strong> · Public technology landing page</span>
-      <span class="no-public-links">No public directory or application index</span>
+    <footer>
+      <span>© <span id="year">2026</span> Lawnet Cloud</span>
+      <span>Built for the Lawrence family.</span>
     </footer>
   </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
